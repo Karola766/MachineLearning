@@ -3,9 +3,11 @@ from PIL import Image
 
 
 def checkerboard(shape1, shape2, n):
-    array = np.array([[((index[0] // 100 + index[1] // 100) % n) * 255, 0, 0] for index in
-                      np.ndindex(100 * shape1, 100 * shape2)], dtype=np.uint8)
-    array = array.reshape(shape1 * 100, shape2 * 100, 3)
+    row_index = shape1 * 100
+    col_index = shape2 * 100
+    array = np.array([[((index[0] // 100 + index[1] // 100) % n)*255, 0, 0] for index in
+                      np.ndindex(row_index, col_index)], dtype=np.uint8)
+    array = array.reshape(row_index, col_index, 3)
     '''row_index = shape1*100
     col_index = shape2*100
     array = np.zeros((row_index, col_index, 3), dtype=np.uint8)

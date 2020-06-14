@@ -3,8 +3,8 @@ def phrase_check(filename):
     with open(filename, "r") as file:
         for line in file:
             stripped_line = line.strip().split(" ")
-            if all(elem == 1 for elem in [stripped_line.count(i) for i
-                                          in stripped_line]):
+            if all(count_word == 1 for count_word in [stripped_line.count(i) for i
+                                                      in stripped_line]):
                 count += 1
     return count
 
